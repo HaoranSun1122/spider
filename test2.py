@@ -1,17 +1,10 @@
-from apscheduler.schedulers.blocking import BlockingScheduler
-import random
+from pynverse import inversefunc
+cube = (lambda x: x**3)
+# invcube = inversefunc(cube, y_values=3)
+#
+# # array(3.0000000063797567)
+invcube = inversefunc(cube)
+print(invcube(27))
 
-i = -1
-acceleration = []
-def get_start_time():
-    global i
-    i = i + 1
-    acceleration.append(round(random.uniform(-3.924, 3.924), 3))
-    # acceleration[i] =
-    print(i)
-    print(acceleration[i])
-    return i
 
-sched = BlockingScheduler()
-sched.add_job(get_start_time, 'interval', seconds=1)
-sched.start()
+# array(3.0000000063797567)
